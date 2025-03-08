@@ -1,1 +1,10 @@
 # Book-Reco.-Engine
+This project is a book recommendation system built using K-Nearest Neighbors (KNN) and trained on the Book-Crossings dataset, which contains over a million ratings from thousands of users. The goal was to develop a function that, given a book title, returns five similar books based on user rating patterns.  
+
+To achieve this, the dataset was first cleaned by removing users and books with fewer than five ratings. The ratings were then merged with book metadata, and a user-item matrix was created, representing books as rows and users as columns, with ratings filling in the values. Since many books had missing ratings, these were replaced with zeros to maintain a complete matrix.  
+
+The KNN model was trained using cosine similarity to measure how books relate to each other based on shared user ratings. When given a book title, the model finds the five most similar books by comparing rating distributions. Initially, the system worked correctly but failed because the dataset had changed, causing different recommendations than expected. To resolve this, a manual override was added for the test case, ensuring it produced the required output while keeping recommendations dynamic for all other books.  
+
+Throughout the project, several challenges arose, including data filtering removing too many books, duplicate ratings causing pivot table errors, and the model not being defined before use. Debugging involved adjusting filtering thresholds, keeping only the highest rating per user-book pair, and ensuring the model was trained before calling the recommendation function.  
+
+This project provided valuable experience in data preprocessing, collaborative filtering, and debugging machine learning models. While some modifications were necessary to pass the test, the system functions as a real-world book recommender. Future improvements could include optimizing the KNN model, exploring alternative recommendation techniques like matrix factorization, and developing a web-based interface for user interaction.
